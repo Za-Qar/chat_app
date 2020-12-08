@@ -27,7 +27,8 @@ socket.on("message", (message) => {
     }
   }
 
-  messages.unshift(message);
+  messages.push(message);
+  // messages.reverse();
   displayMessages();
 
   //scroll to the bottom
@@ -56,6 +57,7 @@ createMessageHTML = (message) => {
 };
 
 displayMessages = () => {
+  // const newArr = messages.reverse();
   const messagesHTML = messages
     .map((message) => createMessageHTML(message))
     .join("");
