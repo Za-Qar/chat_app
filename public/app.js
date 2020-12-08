@@ -37,7 +37,7 @@ socket.on("message", (message) => {
 createMessageHTML = (message) => {
   if (message.type === messageTypes.LOGIN) {
     return `
-			<p class="secondary-text text-center mb-2">${message.author} joined the chat...</p>
+			<p class="secondary-text text-center mb-2">${usernameInput.value} joined the chat...</p>
 		`;
   }
   return `
@@ -59,7 +59,7 @@ displayMessages = () => {
   const messagesHTML = messages
     .map((message) => createMessageHTML(message))
     .join("");
-  messagesList.innerHTML = messagesHTML[messagesHTML.length - 1];
+  messagesList.innerHTML = messagesHTML;
 };
 
 sendBtn.addEventListener("click", (e) => {
@@ -69,14 +69,14 @@ sendBtn.addEventListener("click", (e) => {
   }
 
   const date = new Date();
-  const month = ("0" + date.getMonth()).slice(0, 1);
+  const month = 1 + date.getMonth();
   const day = date.getDate();
   const year = date.getFullYear();
   const dateString = `${day}/${month}/${year}`;
 
   const message = {
-    author: dateString,
-    date: username,
+    author: usernameInput.value,
+    date: dateString,
     content: messageInput.value,
   };
   sendMessage(message);
