@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
   },
-  "author": "James Q Quick",
+  "author": "Zaid Qarout",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
